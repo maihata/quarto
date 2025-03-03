@@ -1,5 +1,5 @@
 ---
-title: "Maiko's Blog"
+title: "Maiko's Data Visualization Blog"
 listing:
   contents: posts
   sort: "date desc"

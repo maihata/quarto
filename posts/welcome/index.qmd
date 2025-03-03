@@ -1,12 +1,14 @@
 ---
-title: "Welcome To My Blog"
-author: "Tristan O'Malley"
+title: "Welcome To Maiko's Blog"
+author: "Maiko Hata"
 date: "2025-02-25"
 categories: [news]
 ---
 
-This is the first post in a Quarto blog. Welcome!
+Welcome to my blog! I created this blog as part of my [Educational Data Science](https://education.uoregon.edu/) course at the University of Oregon, where I am a doctorate student in educational leadership. Just a few months ago, I was completely new to R, RStudio, and GitHub.
 
-![](thumbnail.jpg)
+I also work as an Autism & Behavior Consultant at an outreach agency, [Early Childhood CARES](https://earlychildhoodcares.uoregon.edu/), in the College of Education. This role motivated me to learn more so I can better support infants and toddlers who experience Autism and/or Developmental Disability and their families.
 
-Since this post doesn't specify an explicit `image`, the first image in the post will be used in the listing page of posts.
+For more information, please check out my [LinkedIn](https://www.linkedin.com/in/maikohata) page!
+
+![University of Oregon sign with flowers](/images/uo.jpg){fig-alt="University of Oregon sign with flowers" fig-align="center" width="1684"}

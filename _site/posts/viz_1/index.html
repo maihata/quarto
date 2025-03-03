@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Harlow Malloc">
+<meta name="author" content="Maiko Hata">
 <meta name="dcterms.date" content="2025-02-28">
 
-<title>Post With Code – myblog</title>
+<title>Visualization 1: kable table – Maiko’s blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -40,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-530bf8e59df25186f8bffdc63bad3503.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,6 +102,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -81,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">myblog</span>
+    <span class="navbar-title">Maiko’s blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -99,11 +135,6 @@ ul.task-list li input[type="checkbox"] {
 </i> 
 <span class="menu-text"></span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -115,9 +146,9 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Post With Code</h1>
+      <h1 class="title">Visualization 1: kable table</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">news</div>
+                <div class="quarto-category">visualization</div>
                 <div class="quarto-category">code</div>
                 <div class="quarto-category">analysis</div>
               </div>
@@ -130,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Harlow Malloc </p>
+               <p>Maiko Hata </p>
             </div>
     </div>
       
@@ -156,7 +187,199 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is a post with executable code.</p>
+<p>This is the first step in my visualization journey. I created a simple kable table using data from the Office of Special Education Programs (OSEP) (<a href="https://data.ed.gov/dataset/idea-section-618-data-products-static-tables-part-c" class="uri">https://data.ed.gov/dataset/idea-section-618-data-products-static-tables-part-c</a>).</p>
+<p>To give some background, my dissertation focuses on equitable access to Early Intervention (EI) for different groups.</p>
+<p>Here’s what my first attempt looked like:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>race_us_chart <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"/Users/hata/Desktop/quarto/Data/race_us_chart.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 7 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): Race
+dbl (6): Disqualified, Moved Out, Not Determined, Not Eligible, Part B Eligi...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(race_us_chart, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">"simple"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Race</th>
+<th style="text-align: right;">Disqualified</th>
+<th style="text-align: right;">Moved Out</th>
+<th style="text-align: right;">Not Determined</th>
+<th style="text-align: right;">Not Eligible</th>
+<th style="text-align: right;">Part B Eligible</th>
+<th style="text-align: right;">Withdrawn</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Alaska Native or American Indian</td>
+<td style="text-align: right;">3262</td>
+<td style="text-align: right;">1045</td>
+<td style="text-align: right;">2480</td>
+<td style="text-align: right;">4395</td>
+<td style="text-align: right;">9035</td>
+<td style="text-align: right;">3155</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Asian</td>
+<td style="text-align: right;">6559</td>
+<td style="text-align: right;">8031</td>
+<td style="text-align: right;">22848</td>
+<td style="text-align: right;">26712</td>
+<td style="text-align: right;">52840</td>
+<td style="text-align: right;">21737</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Black or African American</td>
+<td style="text-align: right;">56155</td>
+<td style="text-align: right;">14648</td>
+<td style="text-align: right;">69687</td>
+<td style="text-align: right;">65353</td>
+<td style="text-align: right;">139607</td>
+<td style="text-align: right;">48699</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hispanic or Latino</td>
+<td style="text-align: right;">79951</td>
+<td style="text-align: right;">26699</td>
+<td style="text-align: right;">173416</td>
+<td style="text-align: right;">165654</td>
+<td style="text-align: right;">318999</td>
+<td style="text-align: right;">109469</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Two or More Races</td>
+<td style="text-align: right;">11676</td>
+<td style="text-align: right;">6477</td>
+<td style="text-align: right;">15813</td>
+<td style="text-align: right;">28996</td>
+<td style="text-align: right;">50699</td>
+<td style="text-align: right;">19195</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pacific Islander</td>
+<td style="text-align: right;">977</td>
+<td style="text-align: right;">559</td>
+<td style="text-align: right;">1532</td>
+<td style="text-align: right;">1911</td>
+<td style="text-align: right;">3587</td>
+<td style="text-align: right;">1467</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">White</td>
+<td style="text-align: right;">99922</td>
+<td style="text-align: right;">65399</td>
+<td style="text-align: right;">178843</td>
+<td style="text-align: right;">402568</td>
+<td style="text-align: right;">623690</td>
+<td style="text-align: right;">242489</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>This is the final version. It may look like a simple visualization, but it took a lot of work to clean up the data to get here!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(race_us_chart, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Table of Exit Reasons (National)"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-striped caption-top table-sm small" data-quarto-postprocess="true">
+<caption>Table of Exit Reasons (National)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Race</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Disqualified</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Moved Out</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Not Determined</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Not Eligible</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Part B Eligible</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Withdrawn</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Alaska Native or American Indian</td>
+<td style="text-align: right;">3262</td>
+<td style="text-align: right;">1045</td>
+<td style="text-align: right;">2480</td>
+<td style="text-align: right;">4395</td>
+<td style="text-align: right;">9035</td>
+<td style="text-align: right;">3155</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Asian</td>
+<td style="text-align: right;">6559</td>
+<td style="text-align: right;">8031</td>
+<td style="text-align: right;">22848</td>
+<td style="text-align: right;">26712</td>
+<td style="text-align: right;">52840</td>
+<td style="text-align: right;">21737</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Black or African American</td>
+<td style="text-align: right;">56155</td>
+<td style="text-align: right;">14648</td>
+<td style="text-align: right;">69687</td>
+<td style="text-align: right;">65353</td>
+<td style="text-align: right;">139607</td>
+<td style="text-align: right;">48699</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hispanic or Latino</td>
+<td style="text-align: right;">79951</td>
+<td style="text-align: right;">26699</td>
+<td style="text-align: right;">173416</td>
+<td style="text-align: right;">165654</td>
+<td style="text-align: right;">318999</td>
+<td style="text-align: right;">109469</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Two or More Races</td>
+<td style="text-align: right;">11676</td>
+<td style="text-align: right;">6477</td>
+<td style="text-align: right;">15813</td>
+<td style="text-align: right;">28996</td>
+<td style="text-align: right;">50699</td>
+<td style="text-align: right;">19195</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pacific Islander</td>
+<td style="text-align: right;">977</td>
+<td style="text-align: right;">559</td>
+<td style="text-align: right;">1532</td>
+<td style="text-align: right;">1911</td>
+<td style="text-align: right;">3587</td>
+<td style="text-align: right;">1467</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">White</td>
+<td style="text-align: right;">99922</td>
+<td style="text-align: right;">65399</td>
+<td style="text-align: right;">178843</td>
+<td style="text-align: right;">402568</td>
+<td style="text-align: right;">623690</td>
+<td style="text-align: right;">242489</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>I will build on this simple kable table to start analyzing the data more deeply. But first, I will show how disparities appear across the United States, where racially marginalized children are often underserved in Early Intervention, unlike in K-12 special education.</p>
 
 
 

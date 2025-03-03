@@ -1,21 +1,24 @@
 project:
   type: website
+  output-dir: docs/ # I added this 3/2, do I need it? 
 
 website:
-  title: "myblog"
+  title: "Maiko's blog"
   navbar:
     right:
       - about.qmd
       - icon: github
         href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
 format:
   html:
+    code-fold: true # added 3/2
+    code: false # added 3/2
     theme:
-      - cosmo
+      - minty
       - brand
     css: styles.css
-
+execute: 
+    warning: false
+    message: false 
 editor: visual
 

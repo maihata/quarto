@@ -10,5 +10,17 @@
   },
   "about.qmd": {
     "about.html": "26fc5ce7"
+  },
+  "index.qmd": {
+    "index.html": "de74f785"
+  },
+  "posts/viz_3/index.qmd": {
+    "index.html": "052e1f83"
+  },
+  "posts/viz_4/index.qmd": {
+    "index.html": "a11e6c49"
+  },
+  "posts/viz_2/index.qmd": {
+    "index.html": "6533031e"
   }
 }

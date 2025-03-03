@@ -1,9 +1,84 @@
 ---
-title: "Post With Code"
-author: "Harlow Malloc"
+title: "Visualization 1: kable()"
+author: "Maiko Hata"
 date: "2025-02-28"
-categories: [news, code, analysis]
-image: "image.jpg"
+categories: [visualization, code, analysis]
+image: "kable.jpg"
 ---
 
-This is a post with executable code.
+This is the first step in my visualization journey. I created a simple kable table using data from the Office of Special Education Programs ([OSEP](https://data.ed.gov/dataset/idea-section-618-data-products-static-tables-part-c)).
+
+To give some background, my dissertation will focus on equitable access to Early Intervention (EI) for different groups. Some of the visualizations in this blog will be adjusted to allow for stronger statistical analysis, such as by incorporating census data.
+
+Here’s what my dataset looked like after I finished wrangling the data:
+
+```{r include=FALSE}
+library(tidyverse)
+library(here)
+library(rio)
+library(knitr)
+library(gt)
+library(DT)
+library(reactable)
+library(gtsummary)
+library(kableExtra)
+library(tinytex)
+library(janitor)
+library(tidylog)
+library(sjPlot)
+library(lme4)
+library(tibble)
+library(dplyr)
+library(epitools)
+library(readxl)
+library(pwr)
+library(rcompanion)
+library(grateful)
+library(distill)
+library(readxl)
+library(scales)
+library(tidyr)
+library(patchwork)
+library(corrplot)
+library(distill)
+library(tibble)
+library(rcartocolor)
+library(ggplot2)
+library(quarto)
+```
+
+```{r include=FALSE}
+race_us_chart <- read_csv("/Users/hata/Desktop/quarto/Data/race_us_chart.csv")
+```
+
+```{r}
+print(race_us_chart)
+```
+
+This may look like a simple visualization, but it took a lot of work to clean up the data to get here! I used many functions for data wrangling, including: `filter()`, `select()`, `mutate()`, `bind_rows()`, `mutate()`, `group_by()`, `pivot_longer()`, `pivot_wider()`, and `summarize()`. Just a few months ago, I was completely new to R, RStudio, and GitHub.
+
+# I WANT TO MAKE THE HEADER BOLD. Also the headers should be centered
+
+```{r}
+kable(race_us_chart, 
+      caption = 
+        "Exit Reasons and Race (National)") %>% 
+  kable_styling(
+    full_width = F, 
+    position = "left")
+```
+
+```{r}
+
+kable(race_us_chart, 
+      caption = "Exit Reasons and Race (National)", 
+      align = "c") %>%  # Centers both headers and content
+  kable_styling(
+    full_width = F, 
+    position = "center",  # Centers the entire table
+    bootstrap_options = c("striped", "hover")) %>%   # Adds striped rows and hover effect
+  row_spec(0, align = "c")                           # Centers header row
+
+```
+
+I will build on this simple kable table to start analyzing the data more deeply. But first, I will show how disparities appear across the United States, where racially marginalized children are often underserved in Early Intervention, unlike in K-12 special education.
