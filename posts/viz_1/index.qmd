@@ -6,7 +6,7 @@ categories: [visualization, code, analysis]
 image: "kable.jpg"
 ---
 
-# Did we fix it?
+# Did we fix fix fix it? 
 
 This is the first step in my visualization journey. I created a simple kable table using data from the Office of Special Education Programs ([OSEP](https://data.ed.gov/dataset/idea-section-618-data-products-static-tables-part-c)).
 
