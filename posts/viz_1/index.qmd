@@ -10,7 +10,7 @@ image: "kable.jpg"
 
 This is the first step in my visualization journey. I created a simple kable table using data from the Office of Special Education Programs ([OSEP](https://data.ed.gov/dataset/idea-section-618-data-products-static-tables-part-c)).
 
-To give some background, my dissertation will focus on equitable access to Early Intervention (EI) for different groups. Some of the visualizations in this blog will be adjusted to allow for stronger statistical analysis, such as by incorporating census data.
+To give some background, my dissertation will focus on equitable access to [Early Intervention (EI)](https://www.cdc.gov/ncbddd/actearly/parents/states.html) for different groups. Some of the visualizations in this blog will be adjusted to allow for stronger statistical analysis, such as by incorporating census data.
 
 Here’s what my dataset looked like after I finished wrangling the data:
 
