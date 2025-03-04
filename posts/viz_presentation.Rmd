@@ -4,6 +4,7 @@ author: "Maiko Hata"
 date: "2025-03-03"
 output: html_document
 format: revealjs
+categories: [visualization, presentation]
 image: images/family_with_a_toddler.jpg
 ---
 

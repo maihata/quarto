@@ -197,4 +197,3 @@ ggplot(childcount1920USOR_long,
     legend.position = "bottom"
   )
 ```
-
