@@ -1,7 +1,7 @@
 ---
 title: "Visualization 3: corrplot()"
 author: "Maiko Hata"
-date: "2025-02-28"
+date: "2025-03-02"
 categories: [visualization, code, analysis]
 image: "race and exit corrplot.png"
 ---

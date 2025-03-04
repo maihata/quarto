@@ -294,13 +294,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>After making adjustments to show the data more clearly and accurately, here it is—the final version that shows the data best! Flipping the X and Y axes helps readers understand the categories more easily, and the data labels make it clearer to see the exact differences between the national data and Oregon’s data. I also used the Okabe-Ito color palette, assigning specific colors for both the national data and Oregon’s data to maintain consistency in future visualizations.</p>
-<section id="help-why-does-it-not-flip-alphabetically-on-y-axis-and-why-does-it-now-show-the-us-average" class="level2">
-<h2 class="anchored" data-anchor-id="help-why-does-it-not-flip-alphabetically-on-y-axis-and-why-does-it-now-show-the-us-average">HELP: Why does it not flip alphabetically on Y axis, and WHY does it now show the “US average”</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>okabe_ito_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"US"</span> <span class="ot">=</span> <span class="fu">pal_aaas</span>(<span class="st">"default"</span>)(<span class="dv">10</span>)[<span class="dv">6</span>],      </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"US and Outlying Areas"</span> <span class="ot">=</span> <span class="fu">pal_aaas</span>(<span class="st">"default"</span>)(<span class="dv">10</span>)[<span class="dv">6</span>],      </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Oregon"</span> <span class="ot">=</span> <span class="fu">pal_aaas</span>(<span class="st">"default"</span>)(<span class="dv">10</span>)[<span class="dv">3</span>])  </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(childcount1920USOR_long, </span>
@@ -312,8 +310,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">width =</span> <span class="fl">0.7</span>)) <span class="sc">+</span>  </span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> okabe_ito_colors, </span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"US"</span>, <span class="st">"Oregon"</span>),         </span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"US"</span>, <span class="st">"Oregon"</span>)          </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"US and Outlying Areas"</span>, <span class="st">"Oregon"</span>),         </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"US and Outlying Areas"</span>, <span class="st">"Oregon"</span>)          </span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">percent_format</span>(<span class="at">scale =</span> <span class="dv">1</span>), </span>
@@ -344,7 +342,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
