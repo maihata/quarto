@@ -187,10 +187,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="did-we-fix-it" class="level1">
-<h1>Did we fix it?</h1>
 <p>This is the first step in my visualization journey. I created a simple kable table using data from the Office of Special Education Programs (<a href="https://data.ed.gov/dataset/idea-section-618-data-products-static-tables-part-c">OSEP</a>).</p>
-<p>To give some background, my dissertation will focus on equitable access to Early Intervention (EI) for different groups. Some of the visualizations in this blog will be adjusted to allow for stronger statistical analysis, such as by incorporating census data.</p>
+<p>To give some background, my dissertation will focus on equitable access to <a href="https://www.cdc.gov/ncbddd/actearly/parents/states.html">Early Intervention (EI)</a> for different groups. Some of the visualizations in this blog will be adjusted to allow for stronger statistical analysis, such as by incorporating census data.</p>
 <p>Here’s what my dataset looked like after I finished wrangling the data:</p>
 <div class="cell">
 <details class="code-fold">
@@ -216,107 +214,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(race_us_chart, </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Exit Reasons and Race (National)"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"Exit Reasons and Race (National)"</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">align =</span> <span class="st">"c"</span>) <span class="sc">%&gt;%</span>  <span class="co"># Centers both headers and content</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">full_width =</span> F, </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">"left"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Exit Reasons and Race (National)</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Race</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Disqualified</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Moved Out</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Not Determined</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Not Eligible</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Part B Eligible</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Withdrawn</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Alaska Native or American Indian</td>
-<td style="text-align: right;">3262</td>
-<td style="text-align: right;">1045</td>
-<td style="text-align: right;">2480</td>
-<td style="text-align: right;">4395</td>
-<td style="text-align: right;">9035</td>
-<td style="text-align: right;">3155</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Asian</td>
-<td style="text-align: right;">6559</td>
-<td style="text-align: right;">8031</td>
-<td style="text-align: right;">22848</td>
-<td style="text-align: right;">26712</td>
-<td style="text-align: right;">52840</td>
-<td style="text-align: right;">21737</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Black or African American</td>
-<td style="text-align: right;">56155</td>
-<td style="text-align: right;">14648</td>
-<td style="text-align: right;">69687</td>
-<td style="text-align: right;">65353</td>
-<td style="text-align: right;">139607</td>
-<td style="text-align: right;">48699</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Hispanic or Latino</td>
-<td style="text-align: right;">79951</td>
-<td style="text-align: right;">26699</td>
-<td style="text-align: right;">173416</td>
-<td style="text-align: right;">165654</td>
-<td style="text-align: right;">318999</td>
-<td style="text-align: right;">109469</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Two or More Races</td>
-<td style="text-align: right;">11676</td>
-<td style="text-align: right;">6477</td>
-<td style="text-align: right;">15813</td>
-<td style="text-align: right;">28996</td>
-<td style="text-align: right;">50699</td>
-<td style="text-align: right;">19195</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Pacific Islander</td>
-<td style="text-align: right;">977</td>
-<td style="text-align: right;">559</td>
-<td style="text-align: right;">1532</td>
-<td style="text-align: right;">1911</td>
-<td style="text-align: right;">3587</td>
-<td style="text-align: right;">1467</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">White</td>
-<td style="text-align: right;">99922</td>
-<td style="text-align: right;">65399</td>
-<td style="text-align: right;">178843</td>
-<td style="text-align: right;">402568</td>
-<td style="text-align: right;">623690</td>
-<td style="text-align: right;">242489</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(race_us_chart, </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"Exit Reasons and Race (National)"</span>, </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">align =</span> <span class="st">"c"</span>) <span class="sc">%&gt;%</span>  <span class="co"># Centers both headers and content</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">full_width =</span> F, </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">"center"</span>,  <span class="co"># Centers the entire table</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>)) <span class="sc">%&gt;%</span>   <span class="co"># Adds striped rows and hover effect</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">align =</span> <span class="st">"c"</span>)                           <span class="co"># Centers header row</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">"center"</span>,  <span class="co"># Centers the entire table</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>)) <span class="sc">%&gt;%</span>   <span class="co"># Adds striped rows and hover effect</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">align =</span> <span class="st">"c"</span>)                           <span class="co"># Centers header row</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="table table-striped table-hover caption-top table-sm small" data-quarto-postprocess="true">
@@ -405,7 +309,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>I will build on this simple kable table to start analyzing the data more deeply. But first, I will show how disparities appear across the United States, where racially marginalized children are often underserved in Early Intervention, unlike in K-12 special education.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

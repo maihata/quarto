@@ -161,8 +161,6 @@ ggplot(childcount1920USOR_long,
 
 After making adjustments to show the data more clearly and accurately, here it is—the final version that shows the data best! Flipping the X and Y axes helps readers understand the categories more easily, and the data labels make it clearer to see the exact differences between the national data and Oregon's data. I also used the Okabe-Ito color palette, assigning specific colors for both the national data and Oregon's data to maintain consistency in future visualizations.
 
-## HELP: Why does it not flip alphabetically on Y axis, and WHY does it now show the "US average"
-
 ```{r }
 okabe_ito_colors <- c(
   "US and Outlying Areas" = pal_aaas("default")(10)[6],      
@@ -200,15 +198,3 @@ ggplot(childcount1920USOR_long,
   )
 ```
 
-```{r}
-ggplot(childcount1920USOR_long, 
-       aes(x = percent, 
-           y = race, 
-           fill = state)) +
-  geom_bar(stat = "identity", 
-           position = position_dodge(
-          width = 0.7)) +  
-  scale_fill_manual(
-    values = okabe_ito_colors
-  ) 
-```
