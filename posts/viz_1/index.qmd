@@ -6,11 +6,9 @@ categories: [visualization, code, analysis]
 image: "kable.jpg"
 ---
 
-# Did we fix it?
-
 This is the first step in my visualization journey. I created a simple kable table using data from the Office of Special Education Programs ([OSEP](https://data.ed.gov/dataset/idea-section-618-data-products-static-tables-part-c)).
 
-To give some background, my dissertation will focus on equitable access to Early Intervention (EI) for different groups. Some of the visualizations in this blog will be adjusted to allow for stronger statistical analysis, such as by incorporating census data.
+To give some background, my dissertation will focus on equitable access to [Early Intervention (EI)](https://www.cdc.gov/ncbddd/actearly/parents/states.html) for different groups. Some of the visualizations in this blog will be adjusted to allow for stronger statistical analysis, such as by incorporating census data.
 
 Here’s what my dataset looked like after I finished wrangling the data:
 
@@ -47,6 +45,7 @@ library(tibble)
 library(rcartocolor)
 library(ggplot2)
 library(quarto)
+library(usethis)
 ```
 
 ```{r include=FALSE}
@@ -59,7 +58,8 @@ print(race_us_chart)
 
 This may look like a simple visualization, but it took a lot of work to clean up the data to get here! I used many functions for data wrangling, including: `filter()`, `select()`, `mutate()`, `bind_rows()`, `mutate()`, `group_by()`, `pivot_longer()`, `pivot_wider()`, and `summarize()`. Just a few months ago, I was completely new to R, RStudio, and GitHub.
 
-```{r}
+```{r include=FALSE}
+
 kable(race_us_chart, 
       caption = 
         "Exit Reasons and Race (National)") %>% 

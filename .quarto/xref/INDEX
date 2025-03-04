@@ -22,5 +22,8 @@
   },
   "posts/viz_2/index.qmd": {
     "index.html": "6533031e"
+  },
+  "posts/viz_presentation.Rmd": {
+    "viz_presentation.html": "e85caf00"
   }
 }
