@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: docs/ # I added this 3/2, do I need it? 
+  output-dir: docs/ 
 
 website:
   title: "Maiko's blog"
@@ -11,8 +11,8 @@ website:
         href: https://github.com/
 format:
   html:
-    code-fold: true # added 3/2
-    code: false # added 3/2
+    code-fold: true 
+    code: false
     theme:
       - minty
       - brand
